@@ -10,8 +10,6 @@
     <version>1.0-SNAPSHOT</version>
 
     <name>microservice_cloud</name>
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
     <packaging>pom</packaging><!-- 表明这是主包 -->
 
     <!--版本控制参数，在父项目里面声明。-->
