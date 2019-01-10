@@ -22,7 +22,7 @@ import java.net.NetworkInterface;
  * <p>
  * 64位ID (42(毫秒)+5(机器ID)+5(业务编码)+12(重复累加))
  *
- * @author Polim
+ * @author penghz
  */
 @Slf4j
 public class IdWorker {
@@ -78,7 +78,7 @@ public class IdWorker {
     /**
      * 获取下一个ID
      *
-     * @return
+     * @return 下一个id
      */
     public synchronized long nextId() {
         long timestamp = timeGen();
@@ -122,8 +122,8 @@ public class IdWorker {
      * 获取 maxWorkerId
      * </p>
      */
-    protected static long getMaxWorkerId(long datacenterId, long maxWorkerId) {
-        StringBuffer mpid = new StringBuffer();
+    private static long getMaxWorkerId(long datacenterId, long maxWorkerId) {
+        StringBuilder mpid = new StringBuilder();
         mpid.append(datacenterId);
         String name = ManagementFactory.getRuntimeMXBean().getName();
         if (!name.isEmpty()) {
@@ -143,7 +143,7 @@ public class IdWorker {
      * 数据标识id部分
      * </p>
      */
-    protected static long getDatacenterId(long maxDatacenterId) {
+    private static long getDatacenterId(long maxDatacenterId) {
         long id = 0L;
         try {
             InetAddress ip = InetAddress.getLocalHost();
